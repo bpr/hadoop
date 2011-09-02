@@ -1,0 +1,10 @@
+A simple url counting program (counts each occurrence of a URL in a dataset) in OCaml to be run 
+under the streaming interface of hadoop. Make sure OCaml PCRE library is up to date on all nodes. 
+
+To test this on Unix sans hadoop, try 
+
+./mapper < testfile | sort | ./reducer
+
+A bash script 'urlcount' is included to show how to set the arguments to 
+hadoop.
+

@@ -1,0 +1,20 @@
+OCAMLPROJECT_DESCRIPTION = simple hadoop map reduce scripts
+
+USE_OCAMLFIND = true
+
+OCAMLFLAGS += -dtypes
+
+OCAML_BYTE_LINK_FLAGS =
+
+OCAML_OTHER_LIBS = unix
+
+OCAMLPACKS = pcre
+
+OCamlProgram(mapper, mapper)
+OCamlProgram(reducer, reducer)
+
+.DEFAULT: mapper reducer
+.PHONY: clean
+
+clean:
+	rm -f *.opt *.o *.a *.cm* *~ *.annot

@@ -1,0 +1,14 @@
+#! /bin/bash
+#
+HADOOP_DIR=/etc/local/hadoop/hadoop-0.20.0
+HADOOP_STREAMING_JAR=$HADOOP_DIR/contrib/streaming/hadoop-0.20.0-streaming.jar
+
+INPUT_DIR=/user/hadoop/source/your_data/your_data_original
+OUTPUT_DIR=/user/hadoop/source/your_data/your_data_result
+hadoop jar $HADOOP_STREAMING_JAR -D mapred.task.timeout=1000000000 \
+  -file $1 \
+  -file $2 \
+  -input $INPUT_DIR \
+  -output $OUTPUT_DIR \
+  -mapper $1 \
+  -reducer $2
